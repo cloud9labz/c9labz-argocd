@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: myapp2-deployment
+  namespace: webapp2
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp2
+  template:  
+    metadata: 
+      name: myapp2-pod
+      labels: 
+        app: myapp2  
+    spec:
+      containers: 
+        - name: myapp2-container
+          image: ghcr.io/stacksimplify/kubenginxhelm:0.1.0
+          ports: 
+            - containerPort: 80  
